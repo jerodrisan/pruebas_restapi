@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
+const cors = require('cors')
 //ojo en package.json en script ponemos a mano   "dev": "nodemon src/index.js" 
 
 //settings 
@@ -18,6 +19,7 @@ app.use(morgan('dev')) //permite ver por consola lo que va llegando al servidor
 //app.use(morgan('combined')); //daria un mensaje con mas informacion por consola.
 app.use(express.urlencoded({ extended:false})) //para recibir datos desde formularios (extended false es para recibi datos basicos de formulario)
 app.use(express.json())     //para recibir datos tipo json 
+app.use(cors())   //Con ello hacemos que cualquier origen funcione en nuestra api
 
 //Ejemplo de middleware para entenderlo. Todas las peticiones request  (post, delete, put , et), entra por el use 
 // Luego hay que poner el next para que pase a la siguiente ruta para que se ejecute. Si no se pone el next() , se qeda parado 
