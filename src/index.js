@@ -4,7 +4,7 @@ const morgan = require('morgan')
 //ojo en package.json en script ponemos a mano   "dev": "nodemon src/index.js" 
 
 //settings 
-app.set('port', process.env.PORT || 3000)  //de esta forma la variable port al numero 3000  para luego en app.listen poder pillar el valor de la variable
+app.set('port', process.env.PORT || 3001)  //de esta forma la variable port al numero 3000  para luego en app.listen poder pillar el valor de la variable
 //  process.env.PORT o process.env.PORT || 3000 means: whatever is in the environment variable PORT, or 3000 if there's nothing there.
 app.set('json spaces', 2) // Los json se ven mas ordenados (prueba a quitar este setting y ver diferencia)
 
@@ -47,7 +47,7 @@ app.use('/api/users', require('./routes/users') )
 
 //  starting the server
 //  app.listen(3000, ()=> {  
-//     console.log(`Server on port ${3000}`)
+//     console.log(`Server on port ${3001}`)
 // })
 
 app.listen(app.get('port'), ()=> {  
