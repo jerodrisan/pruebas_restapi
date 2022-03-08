@@ -3,6 +3,13 @@ const app = express()
 const morgan = require('morgan')
 const cors = require('cors')
 //ojo en package.json en script ponemos a mano   "dev": "nodemon src/index.js" 
+//Instalar nodemon: npm install -g nodemon 
+// You can also install nodemon as a development dependency:
+//  npm install -g nodemon 
+//  Para inicializar nodemon tal y como esta configurado: npm run dev
+//  Para iniciar sin nodemon : npm run start
+ 
+
 
 //settings 
 app.set('port', process.env.PORT || 3001)  //de esta forma la variable port al numero 3000  para luego en app.listen poder pillar el valor de la variable
@@ -19,7 +26,7 @@ app.use(morgan('dev')) //permite ver por consola lo que va llegando al servidor
 //app.use(morgan('combined')); //daria un mensaje con mas informacion por consola.
 app.use(express.urlencoded({ extended:false})) //para recibir datos desde formularios (extended false es para recibi datos basicos de formulario)
 app.use(express.json())     //para recibir datos tipo json 
-app.use(cors())   //Con ello hacemos que cualquier origen funcione en nuestra api
+app.use(cors())   //Con ello hacemos que cualquier origen funcione en nuestra api , instalamos con npm install cors -E
 
 //Ejemplo de middleware para entenderlo. Todas las peticiones request  (post, delete, put , et), entra por el use 
 // Luego hay que poner el next para que pase a la siguiente ruta para que se ejecute. Si no se pone el next() , se qeda parado 
