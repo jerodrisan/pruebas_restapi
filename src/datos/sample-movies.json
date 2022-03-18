@@ -3,29 +3,33 @@
         "id":"1",
         "title":"ALien",
         "director":"Cameron",
-        "year":"1986",
-        "rating":"8.6"
+        "year":"1986-05-02",
+        "rating":"8.6",
+        "important":true
     },
     {
         "id":"2",
         "title":"the dark night",
         "director":"nolan",
-        "year":"2008",
-        "rating":"10"
+        "year":"2008-06-03",
+        "rating":"10",
+        "important":false
     },
     {
         "id":"3",
         "title":"ALien 3",
         "director":"Cameron",
-        "year":"1986",
-        "rating":"8.6"
+        "year":"1986-01-03",
+        "rating":"8.6",
+        "important":true
     },
     {
         "id":"4",
         "title":"the dark night 4",
         "director":"nolan",
-        "year":"2008",
-        "rating":"10"
+        "year":"2008-09-04",
+        "rating":"10",
+        "important":false
     }
 
 

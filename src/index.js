@@ -1,14 +1,20 @@
+require('dotenv').config() // En caso de que queramos usar el archivo .env , es necesario crear esta linea para que pueda leerlo 
+require('./mongo') // de esta forma conectamos directamente con mongodb a traves de mongoose.connect en el archivo mongo.js
+
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
 const cors = require('cors')
+const handle_errors = require('./middlewares/handleErrors')
+const not_found = require('./middlewares/notFound')
+
+
 //ojo en package.json en script ponemos a mano   "dev": "nodemon src/index.js" 
 //Instalar nodemon: npm install -g nodemon 
 // You can also install nodemon as a development dependency:
 //  npm install -g nodemon 
 //  Para inicializar nodemon tal y como esta configurado: npm run dev
-//  Para iniciar sin nodemon : npm run start
- 
+//  Para iniciar sin nodemon : npm run start 
 
 
 //settings 
@@ -46,6 +52,14 @@ app.use(cors())   //Con ello hacemos que cualquier origen funcione en nuestra ap
 app.use(require('./routes/products'))
 app.use('/api/movies',require('./routes/movies'))
 app.use('/api/users', require('./routes/users') )
+
+//IMPORTANTE: 
+//Middleware para el caso hacer una request que no existe: Ejemplo hacemos un get http://localhost:3001/api/adfadf, el resultado 
+//seria Cannot GET /api/adfadf . SI queremos que no aparezca: ponemos este middleware
+app.use(not_found);
+
+//Ejemplo de middleware para el manejo de errores que usaremos en los metodos router.get('/:id',(req,res,next) y router.delete() del archivo movies.js
+app.use(handle_errors)
 
 
 //para que entre aqui, habria que poner next en 

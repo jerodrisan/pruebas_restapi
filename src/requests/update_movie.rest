@@ -1,0 +1,11 @@
+
+PUT   http://localhost:3001/api/movies/62327db3f7bb2ad32ed3ee3e
+Content-Type: application/json
+
+ {         
+    "title": " guisdfas night jaj",
+    "director": "pepe 2",
+    "year": "2001-02-04",
+    "rating": "8.0",
+    "important": false
+  }

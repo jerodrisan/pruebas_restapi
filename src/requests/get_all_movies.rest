@@ -2,4 +2,4 @@
 //De esta forma cualquier persona puede hacer las request desde el propio proyecto
 // Para que funcione pulsamos donde pone Send Request. Ej: 
 
-GET http://localhost:3000/api/movies
+GET http://localhost:3001/api/movies
